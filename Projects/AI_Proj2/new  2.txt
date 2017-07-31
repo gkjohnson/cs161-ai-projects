@@ -1,0 +1,237 @@
+1. LISP
+2. Searches
+3. Constraint Satisfaction
+4. Games
+5. Propositional Logic
+6. FO Logic
+7. Reasoning / uncertainty
+8. Belief / bayesian networks
+
+LISP:
+
+(defun func-name (param1 param2 ... )
+	(let*
+		(
+			;this is where you declare variables that you can use later in the function
+		)
+		(cond ;conditional
+			((null param1) ; if the first thing is nil
+				'(test)
+			)
+			((listp param1) ; if the first thing is alist
+				(first param1) ; returns the first atom of param1 same as car
+				(rest param2) ; returns the rest of the list same as cdr
+				(cons param1 param2) ;param 2 must be a list - adds param1 to the beginning of param2 as an atom
+				(append list1 list2 ...) takes the lists and constructs them together in the the appropriate way
+			)
+			((equal param1 param2)
+				; returns whether the first and second param are equal
+			)
+			(t
+				'(TEST) ;the default return if neither of the first two work
+			)
+		)
+	)
+)
+
+Search Concepts:
+	backtracking - if an item has already been listed, do no visit it again (keep a list of items that have been visited and check if the node has laready
+	been on there so you know oyuv found the shallowest version of that ndoe and so you dont get stuck in a recursive loop
+	
+	nodes are "expanded" when you get to them - ie created when you get there
+	concept of storing information about a state in a "state" that stores positions etc about objects in your world (boxes on a grid etc)
+
+Games:
+	a single "ply" refers to a single turn taken by a single player.
+	a full turn is when both players have taken their ply (2 ply = 1 turn with 2 players)
+	during the opponent's ply, he will try to minimize your score
+	during your ply, you will try to maximize your score
+	
+	every row in the tree applies to one player
+	the tree can be searched down to the final outcome of the game with a score and everything and the ni ntaht
+		way the player can decide which way to go - they player should know which paths will not be available in
+		perfect play by their opponent because it can be assumed that the opponent will always make the "perfect" move
+	in games where the final states cannot always be reached, an estimation can be made about the game/ "winning" player
+		at any given point so that the entire tree does not have to be traveresed (chess, for example)
+	this is called the minimax algorithm - ie oponent tries to minimize your score while you try to maximize it
+	Not all branches are viable to traverse, though. Alpha Beta pruning can be used to fall out of a subtree early if it
+		is found that minimized / maximized branch that it woudl want to take has already been found (two nodes back must be considered)
+	
+	
+Constraint Satisfaction Problem
+- the tree is searched through and nodes expanded until a set of constraints are met (like n queens) - used when you DONT KNOW what the goal state would look like, just what
+	has to be accomplished
+- if it is in the form a graph - some nodes must be fixed so that it can be traversed as a tree with circular edges
+- nqueens - one queen per row - place a new queen in the next row and if every row has a queen in it, check if it's a solution
+	If you place a queen and it causes a conflict between the variables, stop searching that branch and try another spot
+
+completeness: if there is a solution, it will find it
+
+Breadth First Search
+- visits shallowest depth from left to right before moving down to the next level
+	Time Complexity: b^d
+	Space Complexity: b^d
+	complete
+	
+Depth First Search
+- visits all the way down to the right, chceking each node along the way and then moves left, cehcking
+	the other nodes along the way
+	Time Complexity: b^d
+	Space Complexity: d
+	complete if the tree is finite
+	
+Iterative Deepening Search
+- acts as though the tree is only depth 1 first and visits like depth first search then increases the depth by one through each iteration
+	and continues to search until it reaches the set max depth
+	Time Complexity: b^d
+	Space Complexity: b*d (d is the depth of the goal)
+	not complete if the goal is down past the end of the max depth
+
+Heuristic Search (A* etc)
+- A heuristic function gives the estimated cost from the current node to the goal node
+- a heuristic function that always underestimates (has a tight upper bound) is called admissible/optimistic and will find the solution if it exists
+- A* takes into account the exact cost from the initial state to the current node along the path that had been travelled and adds it to the heuristic
+	ie g(n)+h(n)=f(n) where g(n) is the cost from the initial state to now
+	with a non admissable heuristic A* could overlook the solution
+	
+Local Search Algorithms:
+	simulated annealing
+	hill climbing
+
+Propositional logic:
+	Horn form:
+		At most one positive literal
+	Conjuntive normal form:
+		clauses are made up of statements using OR and joined using AND
+		Resolution Refutation:
+			take the clause that you want to prove and negate it
+			if the negated form causes a contradiction, then the positive form can be assumed to be included in the world space without issue
+	Disjunctive normal form:
+		clauses are made up of statements using ANd and joined using OR
+		
+	joiners:
+		~ (not)
+		^ (and)
+		v (or)
+		=> (implies) - x=>y is the same as ~x v y
+		<=> (bidirectional implication) is the same as (x=>y) ^ (y=>x)
+		
+	inference:
+		if two clauses have the same variable but of opposite negations, then they can be "added" togethre
+		ie Mv~S and SvEvK can resolve to MvEvK
+		
+First Order Logic:
+	Ex there exists an x such that
+	Ay for all 'y' such that
+	Ordering matters for E and A - ExAy "There exists an x such that for all y"
+									AxEy "For all x, there exists a y such that
+	functions are used to denote what an x or y is "Apple(x)" - x is an apple
+		"~Apple(x)" - x is not an apple
+		Ax Apple(x)->eats(Steve, x) - steve eats all x if x is an apple
+		Ex Apple(x)->eats(Steve, x) - There exists an x such that if x is an apple, Steve will eat it
+	clauses can be resolved to come up with new clauses
+	can pick variables to represent truths about a certain world
+	
+	some functions return true or false about a given statement - others would return information about them ie Father(John) would be John's father
+	but Person(John) might return true if john is a person
+	
+	unifiers are are what are used to indicate in what cases a world is true or not
+		food(x) , food(Apple) {x/Apple}
+		P(x,y,z) , P(A,B,B) {x/A y/B z/B}
+	
+Sat solvers are used to resolve a list of literals and find an instantiation of the world that works
+	ie have a list of variables with each variable corresponding to a piece of a map being painted a certain color 
+		- variables corresponding to the same piece being colored a different color cannot all be true
+		- if a graph represents the edges touching each other then a list of elements concatinated shows that both elements cannot be the same color
+		- another clause indicates that one portion MUST have atleast one color
+	this list of variables is assigned a number and a list of clauses is printed out in a text doc with the relationships (ie 1 2 -3)
+	
+Probability Calculus
+	a set of variables and each has a certain probility of occuring - these can be layed out using Causal Probability Tables
+	each instantiation of a world has a certain probability of being true
+	total probability of any individual instance happening is 1 after adding up every instantiation
+	to get the probability that single variable will occur true or false, add up the probabilities of the instantiations that contain the variable with the state you want
+	the probability of all the states of a variable should all add up to being 1
+	
+	if A and B are mutually exclusive, Pr(A v B) = Pr(A) + Pr(B)
+	Pr(A^B)=Pr(A)*Pr(B|A)
+	negation: Pr(~A) = 1 - Pr(A)
+	if A is a contradiction Pr(A)=0
+	if A and B are not mutually exclusive, Pr(A v B) = Pr(A) + Pr(B) - Pr(A^B)
+	if A and B are independent, Pr(A ^ B) = Pr(A)*Pr(B)
+	
+	Baye's Theorem:
+		Pr(A|B)=P(A)*P(B|A)/Pr(B)
+		
+	this can be used to calculate the probability of something specific like Pr(B|A) etc given a worlds instantiation and CPT
+	
+	as the probability reaches .5, entropy (uncertainty) goes to 1
+	
+	
+	
+Bayesian networks are used to map dependencies of nodes in your graph - called a DAG (Directed Acyclic Graph) to indicate the direction of influence
+	Markovian dependencies and D separation are used to dictate whether two nodes a dependent or independent
+	Markovian assumptions:
+		lists the node
+		direct parents of the node
+		nodes that are not direct parents or children in any way
+	D separations
+		-"valves"
+		-three kinds of valves:
+			divergent
+			convergent
+			sequential
+		- divergent and sequential are CLOSED when there is knowledge about them (or fixed)
+		- convergent nodes are only OPEN if the node itself or one of its children are known
+	these tell what will be affected by a change elsewhere in the graph
+	
+	"Training" bayesian networks is done by using a set of data on a pre made graph and using it determine the probabilities of
+		of any given node given the set of data that has been provided - called "EM" - hill climbing and local search algorithms are used
+		to train networks. A local maximum is always found (not global) so several iterations are typically run in order to find the best local
+		max of a set. Simulated annealing has some chance of taking a bad step in a direction
+	
+Neural networks:
+	Neural networks use perceptrons to output data
+	a perceptron takes inputs that have weights, sum the values, and inputs that into a function called the "Activation function" (step, signoid, threshold) that will output information based off of the inputs
+	a full network is made up of three layers: output, hidden, and input
+	the hidden layer is made up of preceptrons that act as inputs to other perceptrons
+	
+	"Back propegation" is used to "train" neural networks given a set of data on a created network. The inputs are used and the output is compared to the expected output and if there is an error, then the weights
+	on each edge are adjusted going backward down the network based off of the error value
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

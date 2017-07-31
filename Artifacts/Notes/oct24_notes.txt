@@ -1,0 +1,101 @@
+Midterm on Wednesday 11/2
+	- covers material through 10/26
+	
+	HW5 due monday
+	
+Propositional Logic
+	- syntax
+	- semantics
+	
+Inference
+	1 enumerating models
+	2 inference
+	3 CSP
+	
+logic:
+delta - if A and (AvB)=>C is true
+alpha is c
+
+A B C	|	AvB	|	(AvB)=>C	| delta
+---------------------------------------
+1 1 1	|	1	|		1		|	1
+1 1 0	|	1	|		0		|	0
+1 0 1	|	1	|		1		|	1
+1 0 0	|	1	|		0		|	0
+0 1 1	|	1	|		1		|	0
+0 1 0	|	1	|		0		|	0
+0 0 1	|	0	|		1		|	0
+0 0 0	|	0	|		1		|	0
+
+delta implies alpha uf the models of delta are included by alpha
+
+models of delta are included by models of alpha
+therefore, delta implies alpha
+
+models of delta intersecting models of NOT alpha = empty set
+same as models of delta AND NOT alpha = empty set -> unsatisfiable
+
+Refutation theorem
+
+Satisfiability Solver
+SAT Solvers
+
+Showing that alpha=>beta is the same as NOT alpha OR Beta
+
+alpha	|	beta	|	alpha=>beta	|	NOT alpha OR beta
+---------------------------------------------------------
+	1	|		1	|		1		|		1
+	1	|		0	|		0		|		0
+	0	|		1	|		1		|		1
+	0	|		0	|		1		|		1
+	
+	
+	
+	
+delta:
+	alpha1
+	alpha2
+	alpha3
+	...
+	alphan
+	
+	
+alpha, alpha=>beta	(inferences conditions/rules)
+------------------		completeness
+	   beta
+	   
+	   
+	   
+		|
+delta	|----	alpha
+		|	R
+alpha is derivable from delta using inferences rules R
+
+
+completeness: if delta implies alpha then alpha is derivable from delta using R
+
+soundness: if alpha is derived by delta using rules R, then delta implies alpha
+
+We want something that is both sound and complete
+
+R is knowledge base?
+
+
+
+  Alpha,Beta
+--------------      AND introduction         Top derives bottom
+alpha AND beta
+
+     Alpha
+--------------      OR introduction
+alpha OR beta
+
+
+Inference Rule: Resolution
+	
+	alphaORbeta, NOTalphaORbeta
+	---------------------------
+	            beta
+		
+	- if knowledge base is in CNF then resolution is "refutation complete"
+	

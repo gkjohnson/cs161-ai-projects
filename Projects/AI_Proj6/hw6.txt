@@ -1,0 +1,97 @@
+1.
+ a. {x/A   y/B   z/B}
+ b. {A/x   B/x   y/G(x,x)}
+ c. {x/B   y/A}
+ d. {x/John   y/John}
+ e. Fails
+ 
+2.
+a.
+ 1. Ax Food(x)=>Likes(John,x)
+ 2. Food(Apples)
+ 3. Food(Chicken)
+ 4. Ax Ey Eats(y,x)&~KilledBy(y,x)=>Food(x)
+ 5. Axy KilledBy(y,x)=>~Alive(y)
+ 6. Eats(Bill,Peanuts)&Alive(Bill)
+ 7. Ax Eats(Bill,x)=>Eats(Sue,x)
+ 
+b.
+ 1. ~Food(x)|Likes(John,x)
+ 2. Food(Apples)
+ 3. Food(Chicken)
+ 4. ~Eats(y,x)|KilledBy(y,x)|Food(x)
+ 5. ~KilledBy(y,x)|~Alive(y)
+ 6. Eats(Bill,Peanuts)
+ 7. Alive(Bill)
+ 8. ~Eats(Bill,x)|Eats(Sue,x)
+ 
+c.
+ 9. ~Likes(John, Peanuts)
+ 10. 1&9: ~Food(Peanuts)
+ 11. 4&10: ~Eats(y,Peanuts)|KilledBy(y,Peanuts)
+ 12. 6&11: KilledBy(Bill,Peanuts)
+ 13. 5&12: ~Alive(Bill)
+ 14: 7&13: Contradiction
+
+d.
+ 9. ~Eats(Sue,xf)
+ 10. 8&9: ~Eats(Bill,xf)
+ 11. 6&10: Contradiction when xf is Peanuts {xf/Peanuts}
+ 
+ Sue eats Peanuts
+ 
+e.
+ First Order:
+ Ay Ex ~Eats(y,x)&Food(x)=>Dies(y)
+ Ay Dies(y)=>~Alive(y)
+ Alive(Bill)
+ 
+ CNF:
+ Eats(y,x)|~Food(x)|Dies(y)
+ ~Dies(y)|~Alive(y)
+ Alive(Bill)
+
+ KnowledgeBase:
+ 1. ~Food(x)|Likes(John,x)
+ 2. Food(Apples)
+ 3. Food(Chicken)
+ 4. ~Eats(y,x)|KilledBy(y,x)|Food(x)
+ 5. ~KilledBy(y,x)|~Alive(y)
+ 6. Eats(y,x)|~Food(x)|Dies(y)
+ 7. ~Dies(y)|~Alive(y)
+ 8. Alive(Bill)
+ 9. ~Eats(Bill,x)|Eats(Sue,x)
+ 
+ Resolutions
+ 10. ~Eats(Sue, xf)
+ 11. 9&10: ~Eats(Bill,xf)
+ 12. 6&11: ~Food(xf)|Dies(Bill)
+ 13. 7&12: ~Food(xf)|~Alive(Bill)
+ 14. 8&13: ~Food(xf)
+ 15. 2&14: Contradiction when xf is apples {xf/Apples}
+ 16. 3&14: Contradiction when xf is chicken {xf/Chicken}
+
+ sue eats chicken and apples
+ 
+3.
+ a.Is the instance Satisfiable (3 colors)?
+	Not Satisfiable
+ b.Is the instance Satisfiable (4 colors)?
+	Satisfiable
+ 
+ c.Graph1 takes at least 4 colors to solve
+ d. solution:
+	Colors: R, G, B, Y
+	1:R
+	2:Y 
+	3:B
+	4:R
+	5:G
+	6:B
+	7:G
+	
+ e. 8 Colors
+ 
+ 
+ 
+ 

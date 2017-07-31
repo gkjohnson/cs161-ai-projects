@@ -1,0 +1,125 @@
+CS161
+Seph Barker
+jbarker@cs.ucla.edu
+OH: BH 2432
+	Mon 1-3 PM
+	
+Artificial Intelligence
+
+LISP Compilers: Allegro CL
+OSX/Linux: CLISP
+
+
+write hw file in <filename>.lsp
+then load the file this way:
+(load "<filename>.lsp")
+(sub-list '(a b c d) 0 2)
+
+then use any functions within the file
+
+debugging:
+(trace sub-list) //prints out callstack if sublist is recursive
+(untrace sub-list) //remove the tracing
+
+Lisp Expressions:
+- atom
+- list of expressions
+
+Atoms:
+- numbers
+- symbols (a,b,x,foo-bar)
+- strings ("foo")
+- NIL or () - only false value
+- T or t
+
+
+Style
+---
+- Consistent indentation
+- meaningful names
+	("food" is bad)
+-lines <= 100 characters
+- comment the code (within reason) ;comment
+
+Lists:
+(x 1 (a 2))
+(expr1 ... exprn)
+
+handout on courseweb for basics
+
+
+Functions:
+---
+cons : (cons 'a '(b)) => (a b)
+	(cons 'a nil) => (a)
+	(cons <expr> <list>) => (<expr> <rest-of-list>)
+first : (first <list>) => <first-elem-of-list>
+	(first (cons 1 '(2 3))) => 1
+	aka "car"
+rest : (rest (cons 1 '(2 3))) => (2 3)
+	(rest '(a)) => nil
+	aka "cdr"
+list : (list 'a 'b 'c) => (a b c)
+Quote: '<expr>
+	(quote <expr>)
+	"Quote" - do not evaluate
+	'x -> x
+	(+ 3 4) => 7
+	'(+ 3 4) => (+ 3 4)
+	''(a)=> (Quote (a))
+cond : (cond (<bool-expr> <expr1> ... <exprn>) ;evaluates all expressions and returns the last
+			(<bool-expr> <expr1> ... <exprn>)
+			(<bool-expr> <expr1> ... <exprn>)
+			...
+			(T <expr1> ... <exprn>) ;final "else" statement, always evaluates to true
+		)
+
+let* : (let* ((<var-name> <expr>)
+			(<var-name> <expr>)
+			...
+			)
+			<expr>
+			<expr>
+			...
+			<expr>
+		)
+		
+defun : (defun func-name (<arg1> ... <argn>) ;comment about the function
+			<expr>
+			...
+			<expr>
+		)
+
+(defun deepremove (elem L)
+	(cond
+		((null L) nil) ;if the list is empty, return the empty list
+		((listp (first L)) cons((deepremove(elem (first L))) (deepremove (rest L))) ;if the first element is a list then deepremove that list and construct it with the rest of the list deep removed
+		((equal elem (first L)) (deepremove(elem (rest L))))
+		(T (cons (first L) (deepremove(elem (rest L)))))
+	)
+)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

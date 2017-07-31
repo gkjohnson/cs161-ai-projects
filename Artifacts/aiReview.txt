@@ -1,0 +1,26 @@
+breadth first search -pg 81
+	branching factor
+	depth
+Uniform cost search - pg83
+Depth First search - pg85
+Iterative Deepening Depth First Search - pg 88
+Comparing Search Strategies - pg91
+Greedy best-first search - pg92
+A* / Heuristic - pg93
+Heuristic - Pg102
+Admissable Heuristics - pg106
+Chapter 3 Summary then Exc - Pg108
+
+Hill-Climbing Alg - Pg 122
+
+Game Playing - Pg161
+	- maximize your score, minimize oponents - 164 - minimax
+Alpha Beta Pruning - Pg 167
+Imperfect/cutting off - Pg 171
+EX/Summary: Pg 189
+
+Constraint Satisfaction Problems - Pg 202
+	- map coloring
+Backtracking in CSP - Pg 214
+Local Search CSP - Pg 220
+EX: Pg 230

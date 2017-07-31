@@ -1,0 +1,104 @@
+*Lisp Expressions:
+	atom->
+		number
+		symbol
+		string
+	list->
+		(fn arg1 ... argn)
+		
+	function:
+		listp - tests if it is a list
+		atom - tests if it is an atom
+		null - tests if a list is empty
+	
+*boolean exptressions:
+	t
+	nil
+	
+	(cond (bexp exp1 ... expn) //executes the expression one my one returning t or nil
+			(bexp2 ...)
+			(bexp3 ...)
+			...
+			(bexpn ...)
+			(t))
+			
+*defining a function:
+	>(defun square(x)
+			(* x x))
+	>(defun <fnName>(arg1 ... argn)
+			<body>)
+			
+	example:
+	(defun abs(x) //defining absolute value function
+		(cond ((< x 0)(-x)) //if x is less than 0, return -x
+			(t x) //otherwise, return x
+		)
+	)
+	
+	*defining recursive function
+		(defun odd?(x)
+			(cond ((= x 0) nil)
+				((= x 1) t)
+				(t(odd?(- x 2))))
+		)
+	
+		(defun  fact(n)
+			(cond ((= x 0) 1)
+				(t (* x (fact(- n 1)))))
+				
+				
+		(defun exp(base power)
+			(cond ((= power 0) 1)
+				((evenp power) (square (exp base(/ power 2))))
+				(t ...)))
+				
+				
+				
+		(defun sum-list (L)
+			(cond ((null L) 0)
+				(t (+ first(L) sum-list(rest(L))))))
+				
+				
+		(defun member?(x L)
+			(cond((null L) nil)
+				((equal(x (first L)) t)
+				(t (member?(x rest(L))))))
+	
+		(defun nth(L n)
+			(cond ((equal n 0) first(L))
+				(t (nth (rest L) (- n 1)))
+			)
+		)
+		
+		
+		
+		(defun remove(x L)
+			(cond ((null L) nil)
+				((equal x (first L)) (remove x (rest L)))
+				(t (cons (first L) (remove x (rest L))))
+			)
+		)
+		
+		(defun append(L1 L2)
+			(cond ((null L1) L2))
+				(t (cons (first L1) append((rest L1) L2)))
+			)
+		)
+		
+		
+		
+		(defun  f(x y)
+			(let* ((a (+ 1 (* x y)))
+					(b (- 1 y)))
+				(+ (* x a a)
+					(* y b)
+					(* a b)
+				)	
+			)
+		)
+			
+		
+		
+		
+		
+		

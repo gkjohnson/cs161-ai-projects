@@ -1,0 +1,60 @@
+Constraint Graph
+- Nodes: Variables
+- Edges: Constraints
+
+Arc consistency
+- Map colors problem - removing pairs that do not fit constraints (two pieces of a map being the same color)
+- only allow legal pairwise value assignments in the domain of an edge
+- pre processing step
+
+Solving Acyclic CSPs (basically a tree)
+- Pick a root
+- Topologically sort the tree (from left to right?)
+- From right to left, make graph arc consistent
+- From left to right, color graph (consistently)
+
+Cutset Conditioning (graph that has cyclic portions)
+- Turn it into a tree
+	- Remove a (set of) nodes. How?
+	- set the nodes to a value (hardcode / hardset), so it no longer needs to be considered
+	- remove conflicting values from neighbors
+- Plug it into our magic black box
+	- if satisfied, we're done
+	- if not, repeat
+	- if not, repeat with different value assignments to cutset
+	
+2 Player Games
+	- Deterministic
+	- Complete Information
+	- nodes are game states
+	- edges: moves - every move by each player is called a "ply" - Every full move is 2ply (each player moved)
+	- Solution to a two player game is a strategy - subgraph
+	- Min/Max Technique - first player wants to maximize outcome, other player wants to minimize outcome/score. So every turn/node goes back and forth
+		- called "minimax search"
+		- but inefficient. Want to avoid traversing the entire tree if possible
+		- Enhancements:
+			- look at one side completely, then the other and you can make sure that it fits within those constraints and can fall out early if wanted
+				- Alpha-Beta Pruning
+			- could calculate score intermitantly on states and use those so that the entire tree does not need to be searched
+				- Static Evaluation function (take into account various attributes, and how strong the position is)
+			- iterative deepening
+			
+Knowledge Representation
+	Knowledge Base:
+		- set of sentences
+		- set of truths about the world/context
+		Syntax: Well formed-ness of sentences
+		Semantics: Meaning of a sentence (whether its true)
+		Propositional Logic:
+				-variables: have value true or false
+				- T = negation
+				- v = OR (aka disjunction)
+				- ^ = AND (aka conjunction)
+				- => = implication
+					T=>T	T
+					T=>F	F
+					F=>F	T
+					F=>T	T
+					- A=>B == TAvB
+				- <=> = Double Implication 
+					- A<=>B == (A=>B)^(B=>A)

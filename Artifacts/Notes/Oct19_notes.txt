@@ -1,0 +1,32 @@
+Knowledge Representation and Reasoning
+	> logical RR - propositional logic  | syntax
+		-first order logic				| semantics
+	> probabilistic logic
+	
+	Knowledge Base : known factors
+	reaoning : implied factors
+	
+	Syntax - Propositional Variables | true/false
+	* p1...pn are all propositional sentences
+	* if S is a sentence then not S is a sentence
+	* if S1 and S2 are sentences, then S1 and S2 is a sentence \ S1 or S2 is a sentence
+	
+	Normal Forms:
+		- CNF (Conjunctive normal form) => (A or notB) and (B or notC or notD) and ...
+		- DNF (Disunctive normal form) => (A and notB) or (B and notC and notD) and ...
+		- HORN:
+			CNF where each clause has <= one positive literals => (A or notB)and(B or notC or notD)
+	
+	
+	
+	
+----
+
+
+	
+	Heuristic logic
+		- get every box pos
+		- get every goal pos
+		- get the distance between every box and the closest goal (double minus the longest dist to take into account the keeper walking to and from) OR (get the distance from each goal to the next shortext box)
+		- get the distance between every box and every closest box (??? maybe)
+		- get istance between the keeper and the first closest box

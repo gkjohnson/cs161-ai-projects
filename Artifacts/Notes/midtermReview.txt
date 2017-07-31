@@ -1,0 +1,137 @@
+161 Midterm Review
+
+CNF
+Conjunctive Normal Form
+- Conjunctions of clauses
+- clause: disjunction of literals
+- literal: variable or its negation
+
+Conversion to CNF
+1. Get rid of (double) implication
+	(a=>b) == NOTa OR b
+	(a<=>b) == (NOTa OR b) AND (NOTb OR a)
+2. moving negations inwards (De Morgan's Laws)
+	NOT(a OR b) == (NOTa AND NOTb)
+	NOT(a AND b) == (NOTa OR NOTb)
+3. Distribute
+	(a AND b) OR c == (a OR c) AND (b OR c)
+	
+EX:
+	NOT(b AND (c OR NOTd)) AND NOT(c => d)
+	(NOTb OR NOT(c OR NOTd)) AND (c AND NOTd) < rid of implications and distribute NOT
+	(NOTb OR (NOTc AND d)) AND (c AND NOTd) < distribute NOT
+	((NOTb OR NOTc) AND (NOTb OR d)) AND (c AND NOTd) < distribute NOTb
+	(NOTb OR NOTc) AND (NOTb OR d) AND c AND NOTd < remove parantheses	<-- FINISHED - four clauses - DO STEP
+	
+Logical Inference
+	Given knowledge base and a new sentence - want to find if the new sentence implied by the knowledge base
+	Modus Penens:
+		- P=>Q
+		- P, then Q
+	Soundness:
+		- Is everything derivable using the rules of inference true
+	Completeness:
+		- Everything can derived using the inference rule
+		- Can derive ALL true things
+		- Whether our inference rule can derive all true statements
+		
+	Resolution:
+		(NOTa OR b)
+		(a OR c)
+		-----------
+		(b OR c)		< resolves to
+		
+		- Given two clauses where one contains a variable A and another contains its negation NOTA
+			construct a new clause which is the disjunction of the remaining variables
+		- In CNF form so each of the clauses can only have OR in them
+		
+		EX2:
+			(q OR r OR s OR t)
+			(NOTq OR u OR v  OR w)
+			------------------------
+			(r OR s OR t OR u OR v OR w)
+		EX3:
+			(a)
+			(NOTa OR b)
+			------------
+			(b)			< unit resolution or modus ponens
+			
+			
+Resolution - Refutation **
+	1. Add the negation of the sentence we want to prove to our knowledge base
+	2. Do resolution until 
+		a. can't resolve anymore (sentence is unprovable)
+		b. have a contradiction (we have proven the new sentence)
+			(a AND NOTA)
+	
+	Ex:
+		a OR b     NOTa OR q     NOTb OR q     NOTq
+			
+		5: 1 and 2: 	b OR q
+		6: 5 and 3:		q
+		7: 4 and 7:     nil - contradiction, Q must be true
+		
+First Order Logic:
+	Constants: LA, 2 King John
+	Predicate: Function returning true or false - Sister (x,y)
+	Functions: return non boolean values
+	Variables: Not necessarily Boolean
+	Connectives: AND OR NOT => <=>
+	Quanitifiers: E (Exists) A (All)
+	
+	Ex:
+		Ex Dog(x) <- there exists an x that is a dog
+		Ax Dog(x) <- all possible values of x, x are dogs
+		
+		Ax Ey Loves(x,y) <- For every x, there is a y that it loves
+		Ey Ax Loves(x,y) <- there exists a y, such that all x love it
+		
+		Et Ax Ey Loves(x,y,t) <- at a specific time, everybody will love somebody at that time
+		Ax Ey Et Loves(x,y,t) <- all x will love somebody at a time
+		
+	Ex:
+		Optimus Prime Likes Trucks
+			Predicate:
+				Likes(x,y)
+				Truck(x)
+		
+		Ax [Truck(x)=>Likes(OP,x)]
+		
+		Optimus Prime likes all big Trucks
+			Predicate:
+				Likes(x,y)
+				Big(x)
+				Truck(x)
+		
+		Ax [(Truck(x) AND Big(x))=>Likes(OP, x)]
+		
+		Optimus Prime doesn't like air planes
+			Predicate:
+				Likes(x,y)
+				Plane(x)
+			
+		Ax [Plane(x)=> NOT Likes(OP,x)]
+		NOT Ex [Plane(x) AND Likes(OP,x)]
+		
+		
+		
+		
+		
+		
+		
+	transparency
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+Genetic Picking Algorithms:
+	- Genetic Algorithm
+	- Simulated Anieling
+	- Local Search
+	- Hill Climbing

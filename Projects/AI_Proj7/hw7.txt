@@ -1,0 +1,78 @@
+1.
+a)
+	P(A,B|K) = P(A|B,K) * P(B|K)
+	P(A,B,K)/P(K) = (P(A,B,K)/P(B,K)) * (P(B,K)/P(K))
+	P(A,B,K)/P(K) = P(A,B,K)/P(K)
+
+	so they are the same
+	
+b)
+	P(A|B,K) = Pr(B|A,K) * Pr(A|K)/Pr(B|K)
+	P(A|B,K) = (Pr(B,A,K)/Pr(A,K)) * (Pr(A,K)/Pr(K))/Pr(B|K)
+	P(A|B,K) = Pr(B,A,K)/Pr(A,K) * Pr(A,K)/(Pr(B|K)*Pr(K))
+	P(A|B,K) = Pr(B,A,K)/(Pr(B|K)*Pr(K))
+	P(A|B,K) = Pr(B,A,K)/(Pr(B,K))
+	P(A|B,K) = Pr(A|B,K)
+	
+2.	54% chance there is oil
+	
+3.
+ a1 a2 a3 | P(*)
+ F  F  F  | 2/13
+ T  F  F  | 3/13
+ F  T  F  | 1/13
+ F  F  T  | 0/13
+ T  T  F  | 0/13
+ F  T  T  | 1/13
+ T  F  T  | 0/13
+ T  T  T  | 6/13
+ 
+a1: 9/13
+a2: 8/13
+a3: 7/13
+ 
+Pr(A|G,B)=Pr(A|G)
+
+Alpha: a3
+Beta: a1
+Gamma: ~a2
+ 
+4.
+a)
+ I(V, Parents(V), Non_Desc(V))
+ ---
+ I(A, - , {B,E})
+ I(B, - , {A,C})
+ I(C, A, {D,B,E})
+ I(D, {A,B}, {C,E})
+ I(E, B, {A,C,D,F,G}
+ I(F, {C,D}, {A,B,E})
+ I(G, F, {A,B,C,D,E,H})
+ I(H, {E,F}, {A,B,C,D,G})
+
+b)
+ - False:
+    A>C>F is open because it is sequential and not known
+    C>F>H is open because it is sequential
+    F>H>E is open because H is known and is convergent
+	
+ - False:
+    G>F>C is open because it is sequential
+	F>C>A is open because it is sequential
+	C>A>D is open because it is divergent
+	A>D>B is open because D is known and is convergent
+	D>B>E is open because it is divergent
+ 
+ - True:
+    A path from A to G cannot be drawn because each possible path
+	requires going through F in a sequential or divergent manner -
+	in both cases it is closed because F is known
+
+c)
+ Pr(a,b,c,d,e,f,g,h)=Pr(a|b,c,d,e,f,g,h)*Pr(b|c,d,e,f,g,h)*Pr(c|d,e,f,g,h)
+                     *Pr(d|e,f,g,h)*Pr(e|f,g,h)*Pr(f|g,h)*Pr(g|h)*Pr(h)
+d)
+ Pr(A=0,B=0) = 0.24 
+    because there is a .8 chance that A=0
+	and a .3 chance that B=0
+ Pr(E=1|A=1) = .34

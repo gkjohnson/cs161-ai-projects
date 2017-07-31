@@ -1,0 +1,40 @@
+SA (problem, schedule)
+	load var current, next, T
+		current <- initial state
+			for t <- 1 to infinity
+					T < schedule(t)
+					if T=0 
+					next < randomly select neighbor
+					delta E < value (next) - value (current)
+					
+
+Two player games:
+	Perfect info? Full knowledge
+	Imperfect info? 
+	
+	_______________|__Determinate____________|__Chance__________________
+	Perfect Info   | Chess, checkers, go     | backgamon, monopoly
+	Imperfect Info | 					     | Poker, Bridge
+	
+Strategy
+Conditional Plan -> do x if openent does this
+
+TicTacToe - each move gets its own new branch
+depth first search - randomly pick a branch to evaluate - no body does this
+
+option - choose the branch with the most winning states
+Evaluate function(based) -> estimate of its minimax value -> look at the number of pieces and calculate a score for each state
+
+cut off the tree and call iterative deepening on it
+
+previous methods compromise play - Alpha-Beta-Pruning allows for exact calculations
+
+prologue - other AI language
+
+go down and get the score and compare to other branchs with the original score as a constraint - as soon as the constraint is broken, leave that branch
+
+alpha beta pruning - minimize then maximize - alternate depending on whose "turn" it is
+
+Order
+	O(b^d) > O(b^d/2) (best case)
+	O(b^d) > O(b^d3/4) (average case)

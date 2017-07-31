@@ -1,0 +1,85 @@
+Reasoning under Uncertainty
+Probabalistic Reasoning
+Probablistic Graphical Model
+
+Adding facts to your KB cannot cause you to recind old beliefs
+Logic is monotonic
+ie.
+Is your car in lot B? Yes
+A car that looks like yours was stolen from Lot B.
+Maybe car is not in lot B - uncertainty - changed previous knowledge
+
+Switching over to probabilities
+Bayesion Networks
+"Probabilistic Graphical Models"
+	> Syntax and Symantics
+	
+Basics of Probabilistic reasoning from the perspective of AI
+										 v (numbers add up to 1) - Distribution/state of belief
+World | Earthquake | Burglary | Alarm | Pr()  | Pr(.|A)
+w1    | t          | t        | t     | .0190 | .0190/.2442
+w2    | t          | t        | f     | .0010 | 0
+w3    | t          | f        | t     | .0560 | .0560/.2442
+w4    | t          | f        | f     | .0240 | 0
+w5    | f          | t        | t     | .1620 | .1620/.2442
+w6    | f          | t        | f     | .0180 | 0
+w7    | f          | f        | t     | .0072 | .0073/.2442
+w8    | f          | f        | f     | .7128 | 0
+
+sentences:
+	EvB=>A
+	
+P(alpha) = SUM over all worlds at which aplha is true
+P(E)=.1 P(B)=.2
+P(B OR E)=
+
+0 <= P(alpha) <= 1
+P(alpha) + p(NOT alpha) = 1
+Pr(alpha AND beta)=Pr(alpha)+P(Beta)-P(alpha OR beta)
+
+   | E  | B  |  A  |
+ t | .1 | .2 |.2447|
+ f | .9 | .8 |.7558|
+Ent|.469|.722|.805 |
+
+higher entropy > less certainty
+at Pr(x)=.5, entropy is the highest
+
+Entropy - single property of distribution
+	Ent(x)=-SUM(Pr(x)*log2(Pr(x)))
+
+	
+	
+Bayes Conditioning
+	Pr(alpha|beta)=P(alpha AND beta) > P(beta)
+
+Pr(Burglary)=.2
+Pr(Burglary|Alarm)=.741
+
+Pr(Earthquake) = .1
+Pr(Earthquake|Alarm)=.307
+
+Pr(Burglary) = .2
+Pr(Burglary|Earthquake)=.2
+
+Pr(Earthquake)=.1
+Pr(Earthquake|Burglary)=.1
+
+
+
+
+
+
+Pr(Burglary)=.2
+Pr(Burglary|Earthquake)=.2
+
+Pr(Burglary|Alarm)= .741
+Pr(Burglary|Alarm AND Earthquake)= .253
+Pr(Burglary|Alarm AND NOT Earthquake)= >.741
+
+Conditional Independence - alpha is independent of Beta given Gamma
+Pr(alpha | gamma) = Pr(alpha | beta AND gamma)
+
+
+
+

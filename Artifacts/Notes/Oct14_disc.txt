@@ -1,0 +1,63 @@
+Best-First Search
+	Requires:
+		closed list - list of expanded nodes
+		open list - list of generated-but-not-expanded nodes sorted in increasing values of f(n)
+		f(n) - cost function = g(n)+h(n)
+			g(n) - cost from initial node to current nodes
+				(cost - sum of edge costs)
+			h(n) - heuristic function (estimated cost from current node to goal node)
+			want an admissible heuristic function (underestimate of cost)
+		
+		-w/ an admissible heuristic function, best first search is optimal
+		
+		procedure:
+			1 put root on the open list
+			2 pick lowest-cost node from open list
+			3 expand it, put in closed list
+			4 put children on the open list
+			5 goto 2
+			6 terminate when goal is chosen for expanded
+			
+		w/ h(n)=0 we have f(n)=g(n), which gives us uniform-cot search
+		w/g(n)=0, f(n)=h(n)
+			we have greedy (pure-heuristic search)
+			not optimal
+			
+		w/ correct g(n) and non-zero h(n), we have A*
+			-road navigation: euclidian distance
+			-8 tile function: manhatten distance (sum of the minimum moves required
+			
+	IDA*
+		- essentially an iterative deepening version of A*
+		- Initialize threshold T= h(root)
+		- Depth-first search
+			- prun nodes that have f(n)>T
+			- stop if goal generated
+		- set T to minimum f-value that exceeded T
+		- repeat
+		
+Constraint-Satisfaction problems:
+	- No explicit goal state
+		- Defined by constraints
+	- objective
+Properties:
+	- set of variables
+	- set of values for each variable
+	- constraints on variable assignments
+		- restrictions on legal value assignments
+N-Queens Problem
+	- put N queens on an NxN board such that none attack each other
+	- variables: Queens
+	- values: position
+
+Solving CSPs:
+	Brute-Force Search
+		-think of it as a tree
+			-nodes are variables
+			- edges are value assignments
+			- DFS generates each possible solution
+			- slow
+		IMPROVMENTS:
+			- backtrack if constraints violated
+			- variable-ordering - most constrained variable first
+			- value-ordering: least constraining value first

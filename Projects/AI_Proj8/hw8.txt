@@ -1,0 +1,47 @@
+1.
+Constraints to ensure that P(D|T) >= 0.30
+ Prior Probability of having the Disease P(D):
+  >=0.008942
+ False Positive for the Test P(T|~D):
+  <=0.002219
+ False Negative for the Test P(~T|D):
+  No solution
+  
+  
+2.
+ a.
+    Method: Fixed "LightSensor" to be On and "SoundSensor" to be off in order to get 
+	the most likely instantiations
+	
+    ExpectingGuests: No
+    OutdoorLight: On
+    FamilyHome: No
+    DogOutside: Yes
+    DogBowelTrouble: Yes
+    HearableBarking: No
+    DogBarking: No
+    LightSensorHealth: OK
+    SoundSensorHealth: OK
+    Battery: OK
+ b.
+    Method: Fixed "FamilyIsHome" to be Yes and "ExpectingGuests" to be No in order to get
+	the most likely instantiations
+	
+    OutdoorLight: Off
+    DogOutside: Yes
+    DogBowelTrouble: Yes
+    HearableBarking: No
+    DogBarking: Yes
+    LightSensor: Off
+    SoundSensor: Off
+	LightSensorHealth: OK
+	SoundSensorHealth: OK
+	Battery: OK
+ c.
+    Two variables minimum are needed
+	For example, both "Battery" and "FamilyIsHome" could be fixed in order to make the sensors
+	independent because both are divergent "valves" so "closing" them by fixing their value
+	causes both sensors to be d-separated
+	
+ d.
+    Multiply-Connected Tree

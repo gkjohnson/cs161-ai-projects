@@ -1,0 +1,79 @@
+1.
+World: P=>¬Q, Q=>¬P
+	P | Q || P=>¬Q | Q=>¬P
+	F | F || T     | T
+	T | F || T     | T
+	F | T || T     | T
+	T | T || F     | F
+
+World: P<=>¬Q, ((P^¬Q)v(¬P^Q))	
+	P | Q || P<=>¬Q | ((P^¬Q)v(¬P^Q))
+	F | F || F      | F
+	T | F || T      | T
+	F | T || T      | T
+	T | T || F      | F
+	
+2.
+	a. Neither -> Satisfiable
+	S | F || (S=>F) | (¬S=>¬F) | (S=>F)=>(¬S=>¬F)
+	F | F || T      | T        | T
+	T | F || F      | T        | T
+	F | T || T      | F        | F
+	T | T || T      | T        | T
+
+	b. Neither -> Satisfiable
+	S | F | H || (S=>F) | ((SvH)=>F) | (S=>F)=>((SvH)=>F)
+	F | F | F || T      | T          | T
+	T | F | F || F      | F          | T
+	F | T | F || T      | T          | T
+	T | T | F || T      | T          | T
+	F | F | T || T      | F          | F
+	T | F | T || F      | F          | T
+	F | T | T || T      | T          | T
+	T | T | T || T      | T          | T
+	
+	c. Valid
+	S | F | H || (S=>F) | (H=>F) | ((S^H)=>F) | ((S=>F)v(H=>F)) | ((S^H)=>F)<=>((S=>F)v(H=>F))
+	F | F | F || T      | T      | T          | T               | T
+	T | F | F || F      | T      | T          | T               | T
+	F | T | F || T      | T      | T          | T               | T
+	T | T | F || T      | T      | T          | T               | T
+	F | F | T || T      | F      | T          | T               | T
+	T | F | T || F      | F      | F          | F               | T
+	F | T | T || T      | T      | T          | T               | T
+	T | T | T || T      | T      | T          | T               | T
+	
+3.
+	Unicorn World
+		M-> Mythical
+		I-> Immortal
+		L-> Mortal Mammal
+		A-> Magical
+		H-> Horned
+	
+	a.
+	Knowledge Base:
+		1. (M=>I)
+		2. (¬M=>L)
+		3. (IvL)=>H
+		4. H=>A
+	b.
+	CNF:
+		1. (M=>I) : ¬MvI
+		2. (¬M=>L) : MvL
+		3. (IvL)=>H : ¬(IvL)vH : ¬Iv¬LvH
+		4. H=>A : ¬HvA
+	
+	Derivations:
+		5. 1&2 - IvL
+		6. 3&5 - H
+		7. 4&6 - A
+		8. 1&3 - ¬Mv¬LvH
+		9. 2&8 - Mv¬MvH - H
+		10. 3&4 - ¬Iv¬LvA
+		11. 5&10 - A
+		
+	c.
+	The given knowledge cannot be used to determine if the Unicorn is mythical
+	The Unicorn is Horned
+	The Unicorn is Magical

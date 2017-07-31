@@ -1,0 +1,125 @@
+Querying Bayesian Networks
+---
+- MPE - Most-Probable Explanation
+  - most likely instantiation of AL unobserved variables
+- MAP - Maximum a posteriori
+  - most-likely instantiation of a SUBSET if all unobserved variables\
+- Probability of Evidence
+  - probability of a certain instantiation of variables
+  
+Constructing Bayesian Networks
+- Given Variables, observations
+- May or may not know network structure
+- May or may not have complete data
+
+*Complete data, known structure
+- try to figure out the CPTs
+- use counting - look at the number of times one is true, then by the time the other is false
+
+*Incomplete data, known structure
+- TRAINING
+- EM - Expectation Maximization
+  - Initialize Random CPTs (randomize ALL the CPTs)
+    - computer likelyhood of data, given CPTs
+	- adjust/improve the CPTs
+	- repeat until the results are close enough to our observed data
+	
+*Learning Network Structure
+- Hill Climbing Algorithm (simulated anealing/local search)
+  - Created a random network and uses EM to see how good it is
+  - can then tweak the network by adding/subtracting the network
+- Local Search Algorithms
+  - Start with a candidate network
+  - Iteratively make local improvements
+  - Have a penalty for network complexity
+  
+- Hill Climbing only makes good tweaks until it cant make any more good ones so that it gets to the top of a local maximua
+- Simulated Annealing deliberately makes a bad decision occasionally
+
+TreeWidth**
+- A mesure of how "tree-like" a graph is
+  - (Measure of connectivity) - the more graphlike it is, this number is higher
+  - Important because 
+- Many Algorithms are faster on graphs with low treewidth
+
+Machine Learning - Learning information/how to behave from data
+- Using experiences and observations to improve future performance
+  - Supervised Learning
+    - Given observations and actions they should lead to
+  - Unsupervised Learning
+    - Just have observations. looks for patterns
+	- EX: clumping netflix users with similar interests/move tastes
+  - Reinforcement Learning:
+    - once an agent takes an action, tell it whether it was good or bad
+	- give positive/negative feedback on actions
+	
+Decision Trees:
+- Given a bunch of observations, predict the outcome
+- Build using ID3
+- choose the root node using the variable that affects the outcome the greatest
+  - pick node with most information gain (minimum entropy)
+  - the MORE entropy a variable has, the less predictable it has 
+  - remove it from observations
+  - calculate the the rest of the variables given the previous observations made
+    - condition data on observations made
+  - recurse
+	
+Neural Networks:
+- Built out of perceptrons
+- several layers:
+  - Output layer (top perceptro that gives the final output
+  - Hidden Layer: (perceptrons that lead into the outputs) - can have multiple layers here
+  - Input Layer: the data that you initially have here
+  
+- Perceptrons receive some number of inputs
+- inputs are weighted and summed together
+- add weights at edge multiplied by the activation function and plug it into the activation function of the next perceptron (g(t))
+	- threshold, step, signoid functions
+	- dendrites and axons are simulated
+	
+Back Propagation - neural network training
+- Train a neural network with back propagation
+- have observations - the actual output of the network - there is some error and you propagate backward changing the weights based on the error
+- then plug in again and get the new out put and recurse (get new error and calculate based off of that)
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+SAMBOT:
+  - given a paragraph of what the scenario looks lik
+  - construct a bayesian network that models that
+  - use the data set from sambot that models that

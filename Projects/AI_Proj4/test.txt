@@ -1,0 +1,44 @@
+Each solution is a list of column numbers with order representing the row number
+0,0 is the top left of the board
+
+
+(QUEENS 1)
+	Returned Solution: (0)
+	Time: 0 seconds
+	
+(QUEENS 2)
+	Returned Solution: NIL
+	Time: 0 seconds
+	
+(QUEENS 3)
+	Returned Solution: NIL
+	Time: 0.001 seconds
+	
+(QUEENS 4)
+	Returned Solution: (2 0 3 1)
+	Time: 0.014 seconds
+	
+(QUEENS 5)
+	Returned Solution: (4 2 0 3 1)
+	Time: .001 seconds
+	
+(QUEENS 6)
+	Returned Solution: (4 2 0 5 3 1)
+	Time: 0.029 seconds
+	
+(QUEENS 7)
+	Returned Solution: (6 4 2 0 5 3 1)
+	Time: 0.008 seconds
+	
+(QUEENS 8)
+	Returned Solution: (7 3 0 2 5 1 6 4)
+	Time: 0.11 seconds
+	
+(QUEENS 9)
+	Returned Solution: (8 6 3 1 7 5 0 2 4)
+	Time: 0.051 seconds
+	
+(QUEENS 10)
+	Returned Solution: (9 7 4 2 0 5 1 8 6 3)
+	Time: 0.0135 seconds
+	

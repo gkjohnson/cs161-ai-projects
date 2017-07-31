@@ -1,0 +1,146 @@
+Binary Variable A
+	Pr(A)+Pr(!A)=1
+	Pr(true)=1
+	Pr(A or B) = Pr(A)+Pr(B)-P(A,B) (A and B)
+	
+If A or B are mutually exclusive
+	P(A,B)=0
+	P(A or B)=P(A)+P(B)
+	
+	
+	if one is true, then the other must be false
+	
+Conditional Probability
+	P(A|B)= P(A,B)
+			------
+			P(B)
+			
+	if B is a subset of A, then the probability of A given B is 1 (A is true in all worlds that B is true because its a subset)
+
+Bayes' Rule
+	P(A|B) = P(B|A) P(A)
+			 -----------
+			 P(B)
+			 
+			 
+	Derivation:
+		P(A,B)=P(B,A)
+		P(A|B)*P(B)=P(B|A)*P(A)
+		P(A|B) = P(B|A) P(A)
+				-----------
+				P(B)
+		
+		
+		P(B|A)=P(B,A)      ->     P(B|A)*P(A)=P(B,A)
+			   ------
+			   P(A)
+			   
+Independence
+	P(A)=P(A|B)
+	P(B)=P(B|A)
+	
+	
+Conditional Independence
+	P(A|B)=P(A|B,C)
+
+	Shoe size is dependent on age
+	Shoe size is conditionally independent of age given height
+
+	I(X,Z,Y)=every subset of X is independent of every subset of Y, given Z
+	
+Chain Rule
+	P(A,B,C,D)=P(A|B,C,D)*P(B|C,D)*P(C|D)*P(D)=P(A,B,C,D)/P(B,C,D) * P(B,C,D)/P(C,D) * P(C,D)/P(D) * P(D)
+	
+Joint Probability Table
+	A     B     C  |  P(*)
+	----------------------
+	F     F     F  |  P(A=F, B=F, C=F)=0
+	F     F     T  |  
+	F     T     F  |  
+	.     .     .
+	.     .     .
+	.     .     .
+	
+	With larger number of variables, becomes way too unwieldly
+	
+Bayesian Networks
+	- What is it? DAG - Directed Acyclic Graph
+	- Nodes are variables/events
+	- Edges are direct causal effects
+	- A->B
+	
+	
+	
+	Age->Height->ShoeSize (age causes height, height causes shoe size)
+
+	
+	                               Season
+								         \
+										  \
+										   v
+                      Sprinklers            Raining
+				              \            /
+						       \          /
+						        v        v
+							  Pavement is Wet
+							         |
+									 v
+							     slippery
+	
+	Parents(N)=immediate parents of the node N
+	Descendants(N)=*all* children under the node (even children of children)
+	Non-Descendants(N)=all nodes but N, Descendents(N), and Parents(N)
+	
+	
+D-Separation
+	- Tells about conditional independence
+	Valves:
+		- sequential ->O->
+		- convergent ->O<-
+		- divergent  <-O->
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+

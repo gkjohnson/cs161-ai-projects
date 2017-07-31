@@ -1,0 +1,67 @@
+- Depth First Search Test Cases
+(DFS 'a) > (a)
+(DFS nil) > nil
+(DFS '(a)) > (a)
+(DFS '(a (b))) > (a b)
+(DFS '(a (b (((c d)))))) > (a b c d)
+(DFS '(a b c d)) > (a b c d)
+(DFS '((A (B)) C (D))) > (a b c d)
+
+- Iterative Deepening Test Cases
+(DFID 'a 0) > (a)
+(DFID '(a) 1) > (a)
+(DFID nil 3) > nil
+(DFID '(a) 0) > nil
+(DFID '(a (b)) 1) > (a)
+(DFID '(a (b)) 2) > (a a b)
+(DFID '(a (b)) 5) > (a a b a b a b a b)
+(DFID '(a b c) 2) > (a b c a b c)
+(DFID '((a) b (c (((d))e))) 3) > (b a b c a b c e)
+(DFID '((A(B)) C (D)) 3) > (c a c d a b c d)
+
+- Missionaries vs Cannibals
+	Final State Test Case
+	(final-state '(3 3 nil)) > T
+	(final-state '(0 1 nil)) > nil
+	(final-state '(2 1 T)) > nil
+	
+	Next State Test Cases
+	(next-state '(3 3 T) 1 1) > ((1 1 nil))
+	(next-state '(2 2 T) 1 1) > ((2 2 nil))
+	(next-state '(1 1 T) 1 1) > ((3 3 nil))
+	(next-state '(3 2 T) 1 0) > ((1 1 nil))
+	(next-state '(3 1 T) 2 0) > ((2 2 nil))
+	(next-state '(3 3 T) 0 1) > ((0 1 nil))
+	(next-state '(3 3 T) 0 2) > ((0 2 nil))
+	(next-state '(3 3 nil) 1 1) > ((1 1 t))
+	(next-state '(2 2 nil) 1 1) > ((2 2 t))
+	(next-state '(1 1 nil) 1 1) > ((3 3 t))
+	(next-state '(3 2 nil) 1 0) > ((1 1 t))
+	(next-state '(3 1 nil) 2 0) > ((2 2 t))
+	(next-state '(3 3 nil) 0 1) > ((0 1 t))
+	(next-state '(3 3 nil) 0 2) > ((0 2 t))
+	(next-state '(3 3 T) 2 1) > nil
+	(next-state '(1 1 nil) 0 0) > nil
+	(next-state '(3 3 T) 1 0) > nil
+	(next-state '(3 1 T) 1 0) > nil
+	(next-state '(3 1 T) 2 0) > ((2 2 nil))
+	
+	Succ Fn Test Cases
+	(succ-fn '(0 3 T)) > ((3 1 nil) (3 2 nil))
+	(succ-fn '(3 3 T)) > ((0 1 nil) (0 2 nil) (1 1 nil))
+	(succ-fn '(3 2 T)) > ((0 2 nil) (0 3 nil) (1 1 nil))
+	(succ-fn '(1 2 T)) > nil
+	
+	On Path Test Cases
+	(on-path '(3 3 T) '((3 3 T))) > T
+	(on-path '(1 1 T) '((3 3 T) (3 2 nil) (1 1 T))) > T
+	(on-path '(3 2 nil) '((3 3 T) (3 1 nil) (2 1 T) (2 2 nil) (3 2 nil) (1 1 nil) (0 0 t) (1 2 nil))) > t
+	(on-path '(3 2 nil) '((3 3 T) (3 1 nil) (2 1 T) (2 2 nil) (1 1 nil) (0 0 t) (1 2 nil))) > nil
+	(on-path '(3 2 nil) nil) > nil
+	
+	MC-DFS Test Cases
+	(mc-dfs '(2 3 nil) nil) > nil
+	(mc-dfs '(3 2 nil) '((3 2 nil))) > nil
+	(mc-dfs '(3 2 nil) nil) > ((3 3 NIL) (0 2 T) (3 2 NIL))
+	(mc-dfs '(3 2 t) nil) > ((3 3 NIL) (0 2 T) (3 2 NIL) (0 3 T) (3 1 NIL) (2 2 T) (2 2 NIL) (3 1 T) (0 3 NIL) (3 2 T))
+	

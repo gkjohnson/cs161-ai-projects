@@ -1,0 +1,76 @@
+Propositional Logic:
+- Syntax
+- Semantic
+- Inference (algorithm)
+	- Model enumeration
+	- Inference Rules: Resolution (subset called unit resolution)
+	- CSP
+	
+- two methods for solving constraint satisfaction problem
+	- complete: always returns whether theres a solution or not
+		depth first search (back track)
+	- incomplete: sometimes will tlle you, could go on forever
+		hill climbing
+		simulated
+		
+		
+delta: A=>B, B=>C
+alpha: A=>C
+
+delta and NOT alpha
+	SAT >yes delta does not imply alpha
+		>no delta does imply alpha
+
+Propositional Logic
+First Order logic (FoL)	Predicate calculas
+
+vocab: p1...pn
+vocab: objects, relations, properties, functions
+
+{
+	constants: LA, 2, King John
+	predicate: brother of, >
+	functions: sqrt, lengthof()
+	variables: x,y,z
+	connectives: AND, OR, NOT
+	quantifiers: ALL, EXISTS
+}
+
+Perdicate(term1...term2)
+term: functions (term1...termn) or custom variable
+
+(lengthof (leftlegof (Richard)), Length (leftlegof(King John)))
+
+For ALLx at(x, UCLA)=>smart(x) - every person at ucla is smart
+at(A, UCLA)=>smart(A) AND
+at(B, UCLA)=>smart(B) AND ...
+
+There exists x at(x,USC) AND smart(x) - there is someone at USC who is smart
+at(A, USC) AND smart(A) OR
+at(B, USC) AND smart(B) OR ...
+
+
+there exists x at(x,UCLA)=>smart(x)
+NOT at(A, UCLA) OR smart(A) OR
+NOT at(B, UCLA) OR smart(B) OR...
+
+
+
+
+ALLx ALLy <=> ALLy ALLx
+EXISTSx EXISTSy <=> EXISTSy EXISTSx
+
+EXISTSx ALLy != ALLy EXISTSx
+
+EXISTSx ALLy st loves(x,y) -> there exists an x that loves everybody
+ALLy EXISTSx st loves(x,y) -> for everyone, there exists someone that loves them
+
+
+ALLx likes(x, IceCream) -> everyone loves ice cream
+NOT (EXISTSx NOT likes(x, IceCream)) -> There does not exist someone who does not lke ice cream (same statement as above)
+
+EXISTSx likes(x, Broccoli) -> there exists someone who likes broccoli
+NOT( ALLx NOT likes(x,Broccoli)) -> it is not the case that no one likes broccoli
+
+EXISTSx EXISTSy NOT(x=y) AND Sister(Spot,x) AND Sister(Spot,x) -> spot has two sisters (or more)
+EXISTSx EXISTSy NOT(x=y) AND Sister(Spot,x) AND Sister(Spot,x) AND ALLz Sister(Spot, z) => ((x=z)OR(y=z)) - Spot has exactly two sisters

@@ -1,0 +1,223 @@
+net
+{
+	rcenginegenerator1317510038576835557L = "edu.ucla.belief.inference.RCSettings@2af4b681";
+	propagationenginegenerator1791944048146838126L = "edu.ucla.belief.approx.BeliefPropagationSettings@508c970a";
+	recoveryenginegenerator6944530267470113528l = "edu.ucla.util.SettingsImpl@3e103ad6";
+	node_size = (130.0 55.0);
+}
+
+node Battery
+{
+	states = ("OK" "Dead" );
+	position = (323 -564);
+	excludepolicy = "include whole CPT";
+	ismapvariable = "false";
+	ID = "variable8";
+	label = "Battery";
+	DSLxEXTRA_DEFINITIONxDIAGNOSIS_TYPE = "AUXILIARY";
+	DSLxSUBMODEL = "Root Submodel";
+	diagnosistype = "AUXILIARY";
+}
+node SoundSensorHealth
+{
+	states = ("OK" "Broken" );
+	position = (598 -576);
+	excludepolicy = "include whole CPT";
+	ismapvariable = "false";
+	ID = "variable11";
+	label = "SoundSensorHealth";
+	DSLxEXTRA_DEFINITIONxDIAGNOSIS_TYPE = "AUXILIARY";
+	DSLxSUBMODEL = "Root Submodel";
+	diagnosistype = "AUXILIARY";
+}
+node LightSensorHealth
+{
+	states = ("OK" "Broken" );
+	position = (53 -552);
+	excludepolicy = "include whole CPT";
+	ismapvariable = "false";
+	ID = "variable12";
+	label = "LightSensorHealth";
+	DSLxEXTRA_DEFINITIONxDIAGNOSIS_TYPE = "AUXILIARY";
+	DSLxSUBMODEL = "Root Submodel";
+	diagnosistype = "AUXILIARY";
+}
+node DogBarking
+{
+	states = ("Yes" "No" );
+	position = (718 -192);
+	excludepolicy = "include whole CPT";
+	ismapvariable = "false";
+	ID = "variable5";
+	label = "DogBarking";
+	DSLxEXTRA_DEFINITIONxDIAGNOSIS_TYPE = "AUXILIARY";
+	DSLxSUBMODEL = "Root Submodel";
+	diagnosistype = "AUXILIARY";
+}
+node OutdoorLight
+{
+	states = ("On" "Off" );
+	position = (161 -91);
+	excludepolicy = "include whole CPT";
+	ismapvariable = "false";
+	ID = "variable0";
+	label = "OutdoorLight";
+	DSLxEXTRA_DEFINITIONxDIAGNOSIS_TYPE = "AUXILIARY";
+	DSLxSUBMODEL = "Root Submodel";
+	diagnosistype = "AUXILIARY";
+}
+node DogOutside
+{
+	states = ("Yes" "No" );
+	position = (498 -94);
+	excludepolicy = "include whole CPT";
+	ismapvariable = "false";
+	ID = "variable1";
+	label = "DogOutside";
+	DSLxEXTRA_DEFINITIONxDIAGNOSIS_TYPE = "AUXILIARY";
+	DSLxSUBMODEL = "Root Submodel";
+	diagnosistype = "AUXILIARY";
+}
+node ExpectingGuests
+{
+	states = ("Yes" "No" );
+	position = (38 12);
+	excludepolicy = "include whole CPT";
+	ismapvariable = "false";
+	ID = "variable4";
+	label = "ExpectingGuests";
+	DSLxEXTRA_DEFINITIONxDIAGNOSIS_TYPE = "AUXILIARY";
+	DSLxSUBMODEL = "Root Submodel";
+	diagnosistype = "AUXILIARY";
+}
+node SoundSensor
+{
+	states = ("On" "Off" );
+	position = (503 -386);
+	excludepolicy = "include whole CPT";
+	ismapvariable = "false";
+	ID = "variable7";
+	label = "SoundSensor";
+	DSLxEXTRA_DEFINITIONxDIAGNOSIS_TYPE = "AUXILIARY";
+	DSLxSUBMODEL = "Root Submodel";
+	diagnosistype = "AUXILIARY";
+}
+node DogBowelTrouble
+{
+	states = ("Yes" "No" );
+	position = (624 17);
+	excludepolicy = "include whole CPT";
+	ismapvariable = "false";
+	ID = "variable2";
+	label = "DogBowelTrouble";
+	DSLxEXTRA_DEFINITIONxDIAGNOSIS_TYPE = "AUXILIARY";
+	DSLxSUBMODEL = "Root Submodel";
+	diagnosistype = "AUXILIARY";
+}
+node LightSensor
+{
+	states = ("On" "Off" );
+	position = (161 -386);
+	excludepolicy = "include whole CPT";
+	ismapvariable = "false";
+	ID = "variable6";
+	label = "LightSensor";
+	DSLxEXTRA_DEFINITIONxDIAGNOSIS_TYPE = "AUXILIARY";
+	DSLxSUBMODEL = "Root Submodel";
+	diagnosistype = "AUXILIARY";
+}
+node FamilyHome
+{
+	states = ("Yes" "No" );
+	position = (339 14);
+	excludepolicy = "include whole CPT";
+	ismapvariable = "false";
+	ID = "variable3";
+	label = "FamilyHome";
+	DSLxEXTRA_DEFINITIONxDIAGNOSIS_TYPE = "AUXILIARY";
+	DSLxSUBMODEL = "Root Submodel";
+	diagnosistype = "AUXILIARY";
+}
+node HearableBarking
+{
+	states = ("Yes" "No" );
+	position = (504 -234);
+	excludepolicy = "include whole CPT";
+	ismapvariable = "false";
+	ID = "variable9";
+	label = "HearableBarking";
+	DSLxEXTRA_DEFINITIONxDIAGNOSIS_TYPE = "AUXILIARY";
+	DSLxSUBMODEL = "Root Submodel";
+	diagnosistype = "AUXILIARY";
+}
+potential ( Battery | )
+{
+	data = (	0.9664	0.0336	);
+}
+potential ( SoundSensorHealth | )
+{
+	data = (	0.9142	0.0858	);
+}
+potential ( LightSensorHealth | )
+{
+	data = (	0.96735	0.03265	);
+}
+potential ( DogBarking | )
+{
+	data = (	0.50195	0.49805	);
+}
+potential ( OutdoorLight | ExpectingGuests FamilyHome )
+{
+	data = (((	0.9070525886669385	0.09294741133306156	)
+		(	0.9361904761904762	0.06380952380952382	))
+		((	0.28190798024434627	0.7180920197556537	)
+		(	0.9220493358633776	0.0779506641366224	)));
+}
+potential ( DogOutside | DogBowelTrouble FamilyHome )
+{
+	data = (((	0.8831568330811901	0.11684316691880989	)
+		(	0.9275820113248163	0.07241798867518368	))
+		((	0.17113594040968344	0.8288640595903166	)
+		(	0.8709169291991378	0.1290830708008622	)));
+}
+potential ( ExpectingGuests | )
+{
+	data = (	0.1489	0.8511	);
+}
+potential ( SoundSensor | Battery SoundSensorHealth HearableBarking )
+{
+	data = ((((	0.9466454895732227	0.05335451042677726	)
+		(	0.04504627480957711	0.9549537251904229	))
+		((	0.37705407827905585	0.6229459217209441	)
+		(	0.05364099490560383	0.9463590050943962	)))
+		(((	0.6942416869424168	0.3057583130575831	)
+		(	0.05411764705882353	0.9458823529411765	))
+		((	0.22077922077922077	0.7792207792207793	)
+		(	0.019417475728155338	0.9805825242718447	))));
+}
+potential ( DogBowelTrouble | )
+{
+	data = (	0.7821	0.2179	);
+}
+potential ( LightSensor | OutdoorLight LightSensorHealth Battery )
+{
+	data = ((((	0.9690821741241066	0.03091782587589347	)
+		(	0.7156234598324298	0.28437654016757025	))
+		((	0.7562595809913132	0.24374041900868676	)
+		(	0.5633802816901409	0.43661971830985913	)))
+		(((	0.1161847789963443	0.8838152210036557	)
+		(	0.09391304347826086	0.9060869565217391	))
+		((	0.1085814360770578	0.8914185639229422	)
+		(	0.0	1.0	))));
+}
+potential ( FamilyHome | )
+{
+	data = (	0.315	0.685	);
+}
+potential ( HearableBarking | DogOutside DogBarking )
+{
+	data = (((	0.941493367317384	0.058506632682616	)
+		(	0.12251130557350091	0.8774886944264991	))
+		((	0.2571936056838366	0.7428063943161635	)
+		(	0.09153713298791019	0.9084628670120898	)));
+}

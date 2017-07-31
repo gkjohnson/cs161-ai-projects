@@ -1,0 +1,105 @@
+Problem solving by search
+A. problem formulates as a "search problem"
+B. search "strategy"
+	^ into search engine => solution
+actions state->state
+
+initial state
+21 
+674
+853
+
+final state
+123
+8 4
+765
+
+applicable actions
+U,D,L,R
+
+could apply to each tile, or just to blank tile
+
+54
+618
+732
+
+>D		>L
+548		5 4
+61 		618
+732		732
+
+>DL >DD >DU
+548 548	repeated
+6 1 612 state
+732 73 
+
+what to do about repeated states?
+	IS
+ /      \ cost 1
+/\		/\ cost 2
+LS		LS
+
+-solution depth d
+-branching factor b
+
+successor function
+       S
+  /  /   \  \
+ 1  2    3   4
+ 
+ N Queens - place queens so they don't attack eachother
+ Q.Q..
+ .....
+ Q....
+ .Q...
+ .....
+ ...Q.
+ 
+ generate
+ expanding
+ fringe
+ search what node to expand next
+ 
+ BFS:
+ Breadth First Search
+ 
+ DFS:
+ Depth First Search
+ 
+ IDS:
+ Iterative Deepening Search
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

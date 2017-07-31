@@ -1,0 +1,50 @@
+Neural Networks
+
+output unit                     o    ai
+                wji
+
+hidden unit      o           o          o          o     aj
+       wkj
+
+input units  s       s   s      s    s       s  s        s   ak
+
+a are the nodes
+w are the connectors
+
+
+
+
+
+Learning:
+1. Bayesian Networks  - Non supervised
+2. Decision Trees     \
+3. Neural Networks    - Supervised
+
+inputs go into the activation function, summing the inputs and calculating:
+1. inj = sum from j of ajwji
+2. aj=g(inj)
+
+
+Activation Functions (g)
+a. Step Function
+	- if the value is less than t, it is zero, otherwise it's 1
+	
+b. sign Function
+	- if the input is less than 0, then it is -1, otherwise its +1 for >0
+	
+c. Signoid Function or (Sigmoid?)
+	- g(x)=1/(1+e^(-x))
+	
+Like an and gate
+	                                      I1  I2  | O
+I1 \1                                     1   1   | 1
+      g(x) t=1.5  ->                      1   0   | 0
+I2 /1                                     0   1   | 0
+                                          0   0   | 0
+										
+Inverter:
+ I-> g(x) t=-/5 ->              I | O
+  w=-1                          1 | 0
+								0 | 1
+								
+										  
